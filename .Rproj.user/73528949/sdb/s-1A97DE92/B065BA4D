@@ -1,0 +1,16 @@
+{
+    "contents" : "\n# read the data into a data frame\nhpc <- read.table(\"./household_power_consumption.txt\",header=TRUE,sep=\";\",na.strings=\"?\",\ncolClasses = c(\"character\", \"character\", \"numeric\", \"numeric\", \"numeric\", \"numeric\", \n               \"numeric\", \"numeric\", \"numeric\"))\n\n# make a vector of dates \nhpcDates <- as.Date(hpc$Date, \"%d/%m/%Y\")\n# assign the dates to the Date attribute of hpc\nhpc$Date <- hpcDates\n\n# get the subset of relevant data\nrelData <- hpc[as.Date(hpc$Date,\"%Y-%m-%d\") %in% as.Date(c(\"2007-02-01\", \"2007-02-02\"),\"%Y-%m-%d\"),]\n\n# make a histogram with red bars, set the x-label and the main title.\n# Graph 1 histogram\n\npar(bg=\"white\")\nhist(relData$Global_active_power, col=c(\"red\"),main=\"Global Active Power\", xlab=\"Global Active Power (kilowatts)\")\n\n\n# copy to a file device\ndev.copy(png, file = \"plot1.png\")\ndev.off()\n",
+    "created" : 1405261053380.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "473323989",
+    "id" : "B065BA4D",
+    "lastKnownWriteTime" : 1405259746,
+    "path" : "~/Desktop/DSc-EDA/project1/ExData_Plotting1/plot1.R",
+    "project_path" : "plot1.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

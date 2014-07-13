@@ -1,6 +1,6 @@
 
 # read the data into a data frame
-hpc <- read.table("./household_power_consumption.txt",header=TRUE,sep=";",na.strings="?",
+hpc <- read.table("../household_power_consumption.txt",header=TRUE,sep=";",na.strings="?",
 colClasses = c("character", "character", "numeric", "numeric", "numeric", "numeric", 
                "numeric", "numeric", "numeric"))
 
@@ -22,7 +22,7 @@ lines(relDT, relData$Sub_metering_1, type="l",col=1)
 lines(relDT, relData$Sub_metering_2, type="l",col=2)
 lines(relDT, relData$Sub_metering_3, type="l",col=4)
 # Add the legend
-legend("topright", col = c("black", "red","blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),lty = 1)
+legend("topright", border="white", col = c("black", "red","blue"), legend = c("Sub_metering_1 ", "Sub_metering_2 ", "Sub_metering_3 "),lty = 1)
 # copy to a file device
 dev.copy(png, file = "plot3.png")
 dev.off()

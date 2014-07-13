@@ -1,0 +1,16 @@
+{
+    "contents" : "# read the data into a data frame\nhpc <- read.table(\"./household_power_consumption.txt\",header=TRUE,sep=\";\",na.strings=\"?\",\ncolClasses = c(\"character\", \"character\", \"numeric\", \"numeric\", \"numeric\", \"numeric\", \n               \"numeric\", \"numeric\", \"numeric\"))\n\n# make a vector of dates \nhpcDates <- as.Date(hpc$Date, \"%d/%m/%Y\")\n# assign the dates to the Date attribute of hpc\nhpc$Date <- hpcDates\n\n# get the subset of relevant data\nrelData <- hpc[as.Date(hpc$Date,\"%Y-%m-%d\") %in% as.Date(c(\"2007-02-01\", \"2007-02-02\"),\"%Y-%m-%d\"),]\n\n# Graph 2 DateTime vs global active power (kilowatts)\n# prepare suitable data for the date-time variable\ndateTimes <- paste(relData$Date,relData$Time)\nrelDT <- strptime(dateTimes, \"%Y-%m-%d %H:%M:%S\")\n\npar(bg=\"white\")\nplot(relDT, relData$Global_active_power, type=\"n\",xlab=\"\",ylab=\"Global Active Power (kilowatts)\")\nlines(relDT, relData$Global_active_power, type=\"l\")\n\n# copy to a file device, note that the default size is 480 x 480 pixels\ndev.copy(png, file = \"plot2.png\")\ndev.off()\n",
+    "created" : 1405261056515.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2427101751",
+    "id" : "75C8B41B",
+    "lastKnownWriteTime" : 1405259797,
+    "path" : "~/Desktop/DSc-EDA/project1/ExData_Plotting1/plot2.R",
+    "project_path" : "plot2.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
