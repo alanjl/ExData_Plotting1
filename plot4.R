@@ -34,7 +34,7 @@ lines(relDT, relData$Sub_metering_1, type="l",col=1)
 lines(relDT, relData$Sub_metering_2, type="l",col=2)
 lines(relDT, relData$Sub_metering_3, type="l",col=4)
 # Add the legend
-legend("topright", col = c("black", "red","blue"), legend = c("Sub_metering_1 ", "Sub_metering_2 ", "Sub_metering_3 "),lty = 1)
+legend("topright", col = c("black", "red","blue"), bty="n",legend = c("Sub_metering_1 ", "Sub_metering_2 ", "Sub_metering_3 "),lty = 1)
 
 # 4.4 Global_reactive_power vs datetime
 plot(relDT, relData$Global_reactive_power, type="l",col=1,xlab="datetime",ylab="Global_reactive_power")
